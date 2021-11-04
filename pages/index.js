@@ -5,10 +5,13 @@ import Link from 'next/link'
 import H1 from '../components/h1'
 import Button from '../components/button'
 import helper  from '../helper'
-
+import React, {useState} from 'react'
+let key = 0
 export default function Home() {
+  const [array, setArray]= useState([new Array])
   const clickHandled =()=>{
-    console.log(`test`)
+    setArray(array.concat(<H1 key={key} text={`wowowowowow`}></H1>))
+    key++
   }
   return (
       <div className={styles.container}>
@@ -20,6 +23,7 @@ export default function Home() {
       <H1 text={'weeee'}/>
       <Button onClick={clickHandled}/>
     <Link href = "/test">test</Link>
+    {array}
     </div>
   )
 }
